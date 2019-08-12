@@ -1181,5 +1181,3 @@ fh.write("".join(keep))
 fh.close()
 
 input('Configuration complete. Press enter key to exit')
-
-
