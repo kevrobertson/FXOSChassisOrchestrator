@@ -344,6 +344,339 @@ commit-buffer
 """.format(enable28.value, porttype28.value, speed28.value,
            autoneg28.value, duplex28.value)
 
+port_channel1_properties = """
+scope eth-uplink
+scope fabric a
+create port-channel {}
+enable
+set port-type {}
+set auto-negotiation {}
+set speed {}
+set duplex {}
+set port-channel-mode {}
+""".format(port_channel1_num, port_channel1_type.value,
+           port_channel1_neg.value, port_channel1_speed.value,
+           port_channel1_duplex.value, port_channel1_mode.value)
+
+portchannel1_1 = """
+create member-port {}
+exit
+""".format(port_channel1_port1.value)
+
+portchannel1_2 = """
+create member-port {}
+exit
+""".format(port_channel1_port2.value)
+
+portchannel1_3 = """
+create member-port {}
+exit
+""".format(port_channel1_port3.value)
+
+portchannel1_4 = """
+create member-port {}
+exit
+""".format(port_channel1_port4.value)
+
+portchannel1_5 = """
+create member-port {}
+exit
+""".format(port_channel1_port5.value)
+
+portchannel1_6 = """
+create member-port {}
+exit
+""".format(port_channel1_port6.value)
+
+portchannel1_7 = """
+create member-port {}
+exit
+""".format(port_channel1_port7.value)
+
+portchannel1_8 = """
+create member-port {}
+exit
+""".format(port_channel1_port8.value)
+
+portchannel_commit = """
+commit-buffer"""
+
+
+port_channel2_properties = """
+scope eth-uplink
+scope fabric a
+create port-channel {}
+enable
+set port-type {}
+set auto-negotiation {}
+set speed {}
+set duplex {}
+set port-channel-mode {}
+""".format(port_channel2_num, port_channel2_type.value,
+           port_channel2_neg.value, port_channel2_speed.value,
+           port_channel2_duplex.value, port_channel2_mode.value)
+
+portchannel2_1 = """
+create member-port {}
+exit
+""".format(port_channel2_port1.value)
+
+portchannel2_2 = """
+create member-port {}
+exit
+""".format(port_channel2_port2.value)
+
+portchannel2_3 = """
+create member-port {}
+exit
+""".format(port_channel2_port3.value)
+
+portchannel2_4 = """
+create member-port {}
+exit
+""".format(port_channel2_port4.value)
+
+portchannel2_5 = """
+create member-port {}
+exit
+""".format(port_channel2_port5.value)
+
+portchannel2_6 = """
+create member-port {}
+exit
+""".format(port_channel2_port6.value)
+
+portchannel2_7 = """
+create member-port {}
+exit
+""".format(port_channel2_port7.value)
+
+portchannel2_8 = """
+create member-port {}
+exit
+""".format(port_channel2_port8.value)
+
+
+port_channel3_properties = """
+scope eth-uplink
+scope fabric a
+create port-channel {}
+enable
+set port-type {}
+set auto-negotiation {}
+set speed {}
+set duplex {}
+set port-channel-mode {}
+""".format(port_channel3_num, port_channel3_type.value,
+           port_channel3_neg.value, port_channel3_speed.value,
+           port_channel3_duplex.value, port_channel3_mode.value)
+
+portchannel3_1 = """
+create member-port {}
+exit
+""".format(port_channel3_port1.value)
+
+portchannel3_2 = """
+create member-port {}
+exit
+""".format(port_channel3_port2.value)
+
+portchannel3_3 = """
+create member-port {}
+exit
+""".format(port_channel3_port3.value)
+
+portchannel3_4 = """
+create member-port {}
+exit
+""".format(port_channel3_port4.value)
+
+portchannel3_5 = """
+create member-port {}
+exit
+""".format(port_channel3_port5.value)
+
+portchannel3_6 = """
+create member-port {}
+exit
+""".format(port_channel3_port6.value)
+
+portchannel3_7 = """
+create member-port {}
+exit
+""".format(port_channel3_port7.value)
+
+portchannel3_8 = """
+create member-port {}
+exit
+""".format(port_channel3_port8.value)
+
+
+port_channel4_properties = """
+scope eth-uplink
+scope fabric a
+create port-channel {}
+enable
+set port-type {}
+set auto-negotiation {}
+set speed {}
+set duplex {}
+set port-channel-mode {}
+""".format(port_channel4_num, port_channel4_type.value,
+           port_channel4_neg.value, port_channel4_speed.value,
+           port_channel4_duplex.value, port_channel4_mode.value)
+
+portchannel4_1 = """
+create member-port {}
+exit
+""".format(port_channel4_port1.value)
+
+portchannel4_2 = """
+create member-port {}
+exit
+""".format(port_channel4_port2.value)
+
+portchannel4_3 = """
+create member-port {}
+exit
+""".format(port_channel4_port3.value)
+
+portchannel4_4 = """
+create member-port {}
+exit
+""".format(port_channel4_port4.value)
+
+portchannel4_5 = """
+create member-port {}
+exit
+""".format(port_channel4_port5.value)
+
+portchannel4_6 = """
+create member-port {}
+exit
+""".format(port_channel4_port6.value)
+
+portchannel4_7 = """
+create member-port {}
+exit
+""".format(port_channel4_port7.value)
+
+portchannel4_8 = """
+create member-port {}
+exit
+""".format(port_channel4_port8.value)
+
+
+port_channel5_properties = """
+scope eth-uplink
+scope fabric a
+create port-channel {}
+enable
+set port-type {}
+set auto-negotiation {}
+set speed {}
+set duplex {}
+set port-channel-mode {}
+""".format(port_channel5_num, port_channel5_type.value,
+           port_channel5_neg.value, port_channel5_speed.value,
+           port_channel5_duplex.value, port_channel5_mode.value)
+
+portchannel5_1 = """
+create member-port {}
+exit
+""".format(port_channel5_port1.value)
+
+portchannel5_2 = """
+create member-port {}
+exit
+""".format(port_channel5_port2.value)
+
+portchannel5_3 = """
+create member-port {}
+exit
+""".format(port_channel5_port3.value)
+
+portchannel5_4 = """
+create member-port {}
+exit
+""".format(port_channel5_port4.value)
+
+portchannel5_5 = """
+create member-port {}
+exit
+""".format(port_channel5_port5.value)
+
+portchannel5_6 = """
+create member-port {}
+exit
+""".format(port_channel5_port6.value)
+
+portchannel5_7 = """
+create member-port {}
+exit
+""".format(port_channel5_port7.value)
+
+portchannel5_8 = """
+create member-port {}
+exit
+""".format(port_channel5_port8.value)
+
+
+port_channel6_properties = """
+scope eth-uplink
+scope fabric a
+create port-channel {}
+enable
+set port-type {}
+set auto-negotiation {}
+set speed {}
+set duplex {}
+set port-channel-mode {}
+""".format(port_channel6_num, port_channel6_type.value,
+           port_channel6_neg.value, port_channel6_speed.value,
+           port_channel6_duplex.value, port_channel6_mode.value)
+
+portchannel6_1 = """
+create member-port {}
+exit
+""".format(port_channel6_port1.value)
+
+portchannel6_2 = """
+create member-port {}
+exit
+""".format(port_channel6_port2.value)
+
+portchannel6_3 = """
+create member-port {}
+exit
+""".format(port_channel6_port3.value)
+
+portchannel6_4 = """
+create member-port {}
+exit
+""".format(port_channel6_port4.value)
+
+portchannel6_5 = """
+create member-port {}
+exit
+""".format(port_channel6_port5.value)
+
+portchannel6_6 = """
+create member-port {}
+exit
+""".format(port_channel6_port6.value)
+
+portchannel6_7 = """
+create member-port {}
+exit
+""".format(port_channel6_port7.value)
+
+portchannel6_8 = """
+create member-port {}
+exit
+""".format(port_channel6_port8.value)
+
+
 found_radius = "RADIUS configuration found, server IP is {}".format(auth_ip.value)
 found_tacacs = "TACACS configuration found, server IP is {}".format(auth_ip.value)
 found_dns1 = "DNS configuration found, first server IP is {}".format(dns1.value)
@@ -477,4 +810,376 @@ print(interface25, file=open("FXOS_Config.txt", "a"))
 print(interface26, file=open("FXOS_Config.txt", "a"))
 print(interface27, file=open("FXOS_Config.txt", "a"))
 print(interface28, file=open("FXOS_Config.txt", "a"))
+
+port_channel1_announce = """Port-channel1 is configured with member interfaces: {} {} {} {} {} {} {} {}""".format(port_channel1_port1.value, port_channel1_port2.value,
+                                                                                                port_channel1_port3.value, port_channel1_port4.value,
+                                                                                                port_channel1_port5.value, port_channel1_port6.value,
+                                                                                                port_channel1_port7.value, port_channel1_port8.value)
+
+port_channel2_announce = """Port-channel2 is configured with member interfaces: {} {} {} {} {} {} {} {}""".format(port_channel2_port1.value, port_channel2_port2.value,
+                                                                                                port_channel2_port3.value, port_channel2_port4.value,
+                                                                                                port_channel2_port5.value, port_channel2_port6.value,
+                                                                                                port_channel2_port7.value, port_channel2_port8.value)
+
+port_channel3_announce = """Port-channel3 is configured with member interfaces: {} {} {} {} {} {} {} {}""".format(port_channel3_port1.value, port_channel3_port2.value,
+                                                                                                port_channel3_port3.value, port_channel3_port4.value,
+                                                                                                port_channel3_port5.value, port_channel3_port6.value,
+                                                                                                port_channel3_port7.value, port_channel3_port8.value)
+
+port_channel4_announce = """Port-channel4 is configured with member interfaces: {} {} {} {} {} {} {} {}""".format(port_channel4_port1.value, port_channel4_port2.value,
+                                                                                                port_channel4_port3.value, port_channel4_port4.value,
+                                                                                                port_channel4_port5.value, port_channel4_port6.value,
+                                                                                                port_channel4_port7.value, port_channel4_port8.value)
+
+port_channel5_announce = """Port-channel5 is configured with member interfaces: {} {} {} {} {} {} {} {}""".format(port_channel5_port1.value, port_channel5_port2.value,
+                                                                                                port_channel5_port3.value, port_channel5_port4.value,
+                                                                                                port_channel5_port5.value, port_channel5_port6.value,
+                                                                                                port_channel5_port7.value, port_channel5_port8.value)
+
+port_channel6_announce = """Port-channel6 is configured with member interfaces: {} {} {} {} {} {} {} {}""".format(port_channel6_port1.value, port_channel6_port2.value,
+                                                                                                port_channel6_port3.value, port_channel6_port4.value,
+                                                                                                port_channel6_port5.value, port_channel6_port6.value,
+                                                                                                port_channel6_port7.value, port_channel6_port8.value)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if port_channel1_configured.value == 'Yes ':
+    print(port_channel1_properties, file=open("FXOS_Config.txt", "a"))
+else:
+    print("Port-channel 1 not defined.")
+
+if port_channel1_configured.value == 'Yes ':
+    print(port_channel1_announce)
+
+if port_channel1_port1.value == 'None':
+    pass
+else:
+    print(portchannel1_1, file=open("FXOS_Config.txt", "a"))
+
+if port_channel1_port2.value == 'None':
+    pass
+else:
+    print(portchannel1_2, file=open("FXOS_Config.txt", "a"))
+
+if port_channel1_port3.value == 'None':
+    pass
+else:
+    print(portchannel1_3, file=open("FXOS_Config.txt", "a"))
+
+if port_channel1_port4.value == 'None':
+    pass
+else:
+    print(portchannel1_4, file=open("FXOS_Config.txt", "a"))
+
+if port_channel1_port5.value == 'None':
+    pass
+else:
+    print(portchannel1_5, file=open("FXOS_Config.txt", "a"))
+
+if port_channel1_port6.value == 'None':
+    pass
+else:
+    print(portchannel1_6, file=open("FXOS_Config.txt", "a"))
+
+if port_channel1_port7.value == 'None':
+    pass
+else:
+    print(portchannel1_7, file=open("FXOS_Config.txt", "a"))
+
+if port_channel1_port8.value == 'None':
+    pass
+else:
+    print(portchannel1_8, file=open("FXOS_Config.txt", "a"))
+
+if port_channel1_configured.value == 'Yes ':
+    print(portchannel_commit, file=open("FXOS_Config.txt", "a"))
+
+if port_channel2_configured.value == 'Yes ':
+    print(port_channel2_properties, file=open("FXOS_Config.txt", "a"))
+else:
+    print("Port-channel 2 not defined.")
+
+if port_channel2_configured.value == 'Yes ':
+    print(port_channel2_announce)
+
+if port_channel2_port1.value == 'None':
+    pass
+else:
+    print(portchannel2_1, file=open("FXOS_Config.txt", "a"))
+
+if port_channel2_port2.value == 'None':
+    pass
+else:
+    print(portchannel2_2, file=open("FXOS_Config.txt", "a"))
+
+if port_channel2_port3.value == 'None':
+    pass
+else:
+    print(portchannel2_3, file=open("FXOS_Config.txt", "a"))
+
+if port_channel2_port4.value == 'None':
+    pass
+else:
+    print(portchannel2_4, file=open("FXOS_Config.txt", "a"))
+
+if port_channel2_port5.value == 'None':
+    pass
+else:
+    print(portchannel2_5, file=open("FXOS_Config.txt", "a"))
+
+if port_channel2_port6.value == 'None':
+    pass
+else:
+    print(portchannel2_6, file=open("FXOS_Config.txt", "a"))
+
+if port_channel2_port7.value == 'None':
+    pass
+else:
+    print(portchannel2_7, file=open("FXOS_Config.txt", "a"))
+
+if port_channel2_port8.value == 'None':
+    pass
+else:
+    print(portchannel2_8, file=open("FXOS_Config.txt", "a"))
+
+if port_channel2_configured.value == 'Yes ':
+    print(portchannel_commit, file=open("FXOS_Config.txt", "a"))
+
+if port_channel3_configured.value == 'Yes ':
+    print(port_channel3_properties, file=open("FXOS_Config.txt", "a"))
+else:
+    print("Port-channel 3 not defined.")
+
+if port_channel3_configured.value == 'Yes ':
+    print(port_channel3_announce)
+
+if port_channel3_port1.value == 'None':
+    pass
+else:
+    print(portchannel3_1, file=open("FXOS_Config.txt", "a"))
+
+if port_channel3_port2.value == 'None':
+    pass
+else:
+    print(portchannel3_2, file=open("FXOS_Config.txt", "a"))
+
+if port_channel3_port3.value == 'None':
+    pass
+else:
+    print(portchannel3_3, file=open("FXOS_Config.txt", "a"))
+
+if port_channel3_port4.value == 'None':
+    pass
+else:
+    print(portchannel3_4, file=open("FXOS_Config.txt", "a"))
+
+if port_channel3_port5.value == 'None':
+    pass
+else:
+    print(portchannel3_5, file=open("FXOS_Config.txt", "a"))
+
+if port_channel3_port6.value == 'None':
+    pass
+else:
+    print(portchannel3_6, file=open("FXOS_Config.txt", "a"))
+
+if port_channel3_port7.value == 'None':
+    pass
+else:
+    print(portchannel3_7, file=open("FXOS_Config.txt", "a"))
+
+if port_channel3_port8.value == 'None':
+    pass
+else:
+    print(portchannel3_8, file=open("FXOS_Config.txt", "a"))
+
+if port_channel3_configured.value == 'Yes ':
+    print(portchannel_commit, file=open("FXOS_Config.txt", "a"))
+
+if port_channel4_configured.value == 'Yes ':
+    print(port_channel4_properties, file=open("FXOS_Config.txt", "a"))
+else:
+    print("Port-channel 4 not defined.")
+
+if port_channel4_configured.value == 'Yes ':
+    print(port_channel4_announce)
+
+if port_channel4_port1.value == 'None':
+    pass
+else:
+    print(portchannel4_1, file=open("FXOS_Config.txt", "a"))
+
+if port_channel4_port2.value == 'None':
+    pass
+else:
+    print(portchannel4_2, file=open("FXOS_Config.txt", "a"))
+
+if port_channel4_port3.value == 'None':
+    pass
+else:
+    print(portchannel4_3, file=open("FXOS_Config.txt", "a"))
+
+if port_channel4_port4.value == 'None':
+    pass
+else:
+    print(portchannel4_4, file=open("FXOS_Config.txt", "a"))
+
+if port_channel4_port5.value == 'None':
+    pass
+else:
+    print(portchannel4_5, file=open("FXOS_Config.txt", "a"))
+
+if port_channel4_port6.value == 'None':
+    pass
+else:
+    print(portchannel4_6, file=open("FXOS_Config.txt", "a"))
+
+if port_channel4_port7.value == 'None':
+    pass
+else:
+    print(portchannel4_7, file=open("FXOS_Config.txt", "a"))
+
+if port_channel4_port8.value == 'None':
+    pass
+else:
+    print(portchannel4_8, file=open("FXOS_Config.txt", "a"))
+
+if port_channel4_configured.value == 'Yes ':
+    print(portchannel_commit, file=open("FXOS_Config.txt", "a"))
+
+if port_channel5_configured.value == 'Yes ':
+    print(port_channel5_properties, file=open("FXOS_Config.txt", "a"))
+else:
+    print("Port-channel 5 not defined.")
+
+if port_channel5_configured.value == 'Yes ':
+    print(port_channel5_announce)
+
+if port_channel5_port1.value == 'None':
+    pass
+else:
+    print(portchannel5_1, file=open("FXOS_Config.txt", "a"))
+
+if port_channel5_port2.value == 'None':
+    pass
+else:
+    print(portchannel5_2, file=open("FXOS_Config.txt", "a"))
+
+if port_channel5_port3.value == 'None':
+    pass
+else:
+    print(portchannel5_3, file=open("FXOS_Config.txt", "a"))
+
+if port_channel5_port4.value == 'None':
+    pass
+else:
+    print(portchannel5_4, file=open("FXOS_Config.txt", "a"))
+
+if port_channel5_port5.value == 'None':
+    pass
+else:
+    print(portchannel5_5, file=open("FXOS_Config.txt", "a"))
+
+if port_channel5_port6.value == 'None':
+    pass
+else:
+    print(portchannel5_6, file=open("FXOS_Config.txt", "a"))
+
+if port_channel5_port7.value == 'None':
+    pass
+else:
+    print(portchannel5_7, file=open("FXOS_Config.txt", "a"))
+
+if port_channel5_port8.value == 'None':
+    pass
+else:
+    print(portchannel5_8, file=open("FXOS_Config.txt", "a"))
+
+if port_channel5_configured.value == 'Yes ':
+    print(portchannel_commit, file=open("FXOS_Config.txt", "a"))
+
+if port_channel6_configured.value == 'Yes ':
+    print(port_channel6_properties, file=open("FXOS_Config.txt", "a"))
+else:
+    print("Port-channel 6 not defined.")
+
+if port_channel6_configured.value == 'Yes ':
+    print(port_channel6_announce)
+
+if port_channel6_port1.value == 'None':
+    pass
+else:
+    print(portchannel6_1, file=open("FXOS_Config.txt", "a"))
+
+if port_channel6_port2.value == 'None':
+    pass
+else:
+    print(portchannel6_2, file=open("FXOS_Config.txt", "a"))
+
+if port_channel6_port3.value == 'None':
+    pass
+else:
+    print(portchannel6_3, file=open("FXOS_Config.txt", "a"))
+
+if port_channel6_port4.value == 'None':
+    pass
+else:
+    print(portchannel6_4, file=open("FXOS_Config.txt", "a"))
+
+if port_channel6_port5.value == 'None':
+    pass
+else:
+    print(portchannel6_5, file=open("FXOS_Config.txt", "a"))
+
+if port_channel6_port6.value == 'None':
+    pass
+else:
+    print(portchannel6_6, file=open("FXOS_Config.txt", "a"))
+
+if port_channel6_port7.value == 'None':
+    pass
+else:
+    print(portchannel6_7, file=open("FXOS_Config.txt", "a"))
+
+if port_channel6_port8.value == 'None':
+    pass
+else:
+    print(portchannel6_8, file=open("FXOS_Config.txt", "a"))
+
+if port_channel6_configured.value == 'Yes ':
+    print(portchannel_commit, file=open("FXOS_Config.txt", "a"))
+
+print()
+
+# Removes empty lines from config.
+fh = open("FXOS_Config.txt", "r")
+lines = fh.readlines()
+fh.close()
+keep = []
+for line in lines:
+    if not line.isspace():
+        keep.append(line)
+fh = open("FXOS_Config.txt", "w")
+fh.write("".join(keep))
+fh.close()
+
 input('Configuration complete. Press enter key to exit')
+
+
