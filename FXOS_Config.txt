@@ -1,0 +1,271 @@
+scope security
+scope tacacs
+create server 172.16.1.1
+set key
+TACACSKEY
+TACACSKEY
+set order 1
+set port 49
+set retries 5
+set timeout 30
+commit-buffer
+scope monitoring
+enable snmp
+set snmp community
+SnmpCommunity
+set snmp syscontact Kevin Robertson
+set snmp syslocation Qatar
+commit-buffer
+scope monitoring
+enable snmp
+create snmp-trap 192.168.10.1
+set community SnmpCommunity
+set port 162
+set version v2c
+set notificationtype traps
+commit-buffer
+scope system
+scope services
+create dns 1.1.1.1
+scope system
+scope services
+create dns 2.2.2.2
+scope system
+scope services
+create dns 3.3.3.3
+commit-buffer
+scope system
+scope services
+set timezone
+2
+49
+21
+1
+commit-buffer
+scope monitoring
+enable syslog remote-destination syslog1
+set syslog remote-destination syslog1 level information
+set syslog syslog1 hostname 100.1.1.1
+set syslog remote-destination syslog1 facility local7
+scope system
+scope services
+create ip-block 10.1.1.0 24 https
+scope system
+scope services
+create ip-block 20.1.1.0 25 https
+scope system
+scope services
+create ip-block 10.1.1.0 26 ssh
+scope system
+scope services
+create ip-block 20.1.1.0 27 ssh
+scope system
+scope services
+create ip-block 10.1.1.0 28 snmp
+scope system
+scope services
+create ip-block 20.1.1.0 29 snmp
+scope system
+scope services
+delete ip-block 0.0.0.0 0 https
+scope system
+scope services
+delete ip-block 0.0.0.0 0 ssh
+scope system
+scope services
+delete ip-block 0.0.0.0 0 snmp
+commit-buffer
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+enable
+set port-type data
+set auto-negotiation 1gbps
+set admin-speed off
+set admin-duplex fullduplex
+commit-buffer
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+enable
+set port-type data
+set auto-negotiation 1gbps
+set admin-speed off
+set admin-duplex fullduplex
+commit-buffer
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+enable
+set port-type data
+set auto-negotiation 1gbps
+set admin-speed off
+set admin-duplex fullduplex
+commit-buffer
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+enable
+set port-type data
+set auto-negotiation 1gbps
+set admin-speed off
+set admin-duplex fullduplex
+commit-buffer
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+enable
+set port-type data
+set auto-negotiation 1gbps
+set admin-speed off
+set admin-duplex fullduplex
+commit-buffer
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+enable
+set port-type data
+set auto-negotiation 1gbps
+set admin-speed off
+set admin-duplex fullduplex
+commit-buffer
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+enable
+set port-type data
+set auto-negotiation 1gbps
+set admin-speed off
+set admin-duplex fullduplex
+commit-buffer
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+enable
+set port-type data
+set auto-negotiation 1gbps
+set admin-speed off
+set admin-duplex fullduplex
+commit-buffer
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+enable
+set port-type data
+set auto-negotiation 1gbps
+set admin-speed off
+set admin-duplex fullduplex
+commit-buffer
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+enable
+set port-type data
+set auto-negotiation 1gbps
+set admin-speed off
+set admin-duplex fullduplex
+commit-buffer
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+enable
+set port-type data
+set auto-negotiation 1gbps
+set admin-speed off
+set admin-duplex fullduplex
+commit-buffer
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+enable
+set port-type data
+set auto-negotiation 1gbps
+set admin-speed off
+set admin-duplex fullduplex
+commit-buffer
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+enable
+set port-type data
+set auto-negotiation 1gbps
+set admin-speed off
+set admin-duplex fullduplex
+commit-buffer
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+enable
+set port-type data
+set auto-negotiation 1gbps
+set admin-speed off
+set admin-duplex fullduplex
+commit-buffer
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+enable
+set port-type data
+set auto-negotiation 1gbps
+set admin-speed off
+set admin-duplex fullduplex
+commit-buffer
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+enable
+set port-type data
+set auto-negotiation 1gbps
+set admin-speed off
+set admin-duplex fullduplex
+commit-buffer
+scope eth-uplink
+scope fabric a
+create port-channel 10
+enable
+set port-type data
+set auto-negotiation on
+set speed 1gbps
+set duplex fullduplex
+set port-channel-mode on
+create member-port Ethernet1/1
+exit
+create member-port Ethernet1/2
+exit
+create member-port Ethernet1/3
+exit
+create member-port Ethernet1/4
+exit
+commit-buffer
+scope eth-uplink
+scope fabric a
+create port-channel 15
+enable
+set port-type data
+set auto-negotiation on
+set speed 1gbps
+set duplex fullduplex
+set port-channel-mode on
+create member-port Ethernet1/5
+exit
+create member-port Ethernet1/6
+exit
+create member-port Ethernet1/7
+exit
+create member-port Ethernet1/8
+exit
+commit-buffer
+scope eth-uplink
+scope fabric a
+create port-channel 20
+enable
+set port-type data
+set auto-negotiation on
+set speed 1gbps
+set duplex fullduplex
+set port-channel-mode on
+create member-port Ethernet2/1
+exit
+create member-port Ethernet2/2
+exit
+commit-buffer
