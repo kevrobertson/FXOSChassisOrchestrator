@@ -140,9 +140,210 @@ interface11 = """
 scope eth-uplink
 scope fabric a
 enter interface Ethernet1/1
-enable
+{}
+set port-type {}
+set auto-negotiation {}
+set admin-speed {}
+set admin-duplex {}
+commit-buffer
+""".format(enable11.value, porttype11.value, speed11.value,
+           autoneg11.value, duplex11.value)
 
-"""
+interface12 = """
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+{}
+set port-type {}
+set auto-negotiation {}
+set admin-speed {}
+set admin-duplex {}
+commit-buffer
+""".format(enable12.value, porttype12.value, speed12.value,
+           autoneg12.value, duplex12.value)
+
+interface13 = """
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+{}
+set port-type {}
+set auto-negotiation {}
+set admin-speed {}
+set admin-duplex {}
+commit-buffer
+""".format(enable13.value, porttype13.value, speed13.value,
+           autoneg13.value, duplex13.value)
+
+interface14 = """
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+{}
+set port-type {}
+set auto-negotiation {}
+set admin-speed {}
+set admin-duplex {}
+commit-buffer
+""".format(enable14.value, porttype14.value, speed14.value,
+           autoneg14.value, duplex14.value)
+
+interface15 = """
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+{}
+set port-type {}
+set auto-negotiation {}
+set admin-speed {}
+set admin-duplex {}
+commit-buffer
+""".format(enable15.value, porttype15.value, speed15.value,
+           autoneg15.value, duplex15.value)
+
+interface16 = """
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+{}
+set port-type {}
+set auto-negotiation {}
+set admin-speed {}
+set admin-duplex {}
+commit-buffer
+""".format(enable16.value, porttype16.value, speed16.value,
+           autoneg16.value, duplex16.value)
+
+interface17 = """
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+{}
+set port-type {}
+set auto-negotiation {}
+set admin-speed {}
+set admin-duplex {}
+commit-buffer
+""".format(enable17.value, porttype17.value, speed17.value,
+           autoneg17.value, duplex17.value)
+
+interface18 = """
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+{}
+set port-type {}
+set auto-negotiation {}
+set admin-speed {}
+set admin-duplex {}
+commit-buffer
+""".format(enable18.value, porttype18.value, speed18.value,
+           autoneg18.value, duplex18.value)
+
+interface21 = """
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+{}
+set port-type {}
+set auto-negotiation {}
+set admin-speed {}
+set admin-duplex {}
+commit-buffer
+""".format(enable21.value, porttype21.value, speed21.value,
+           autoneg21.value, duplex21.value)
+
+interface22 = """
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+{}
+set port-type {}
+set auto-negotiation {}
+set admin-speed {}
+set admin-duplex {}
+commit-buffer
+""".format(enable22.value, porttype22.value, speed22.value,
+           autoneg22.value, duplex22.value)
+
+interface23 = """
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+{}
+set port-type {}
+set auto-negotiation {}
+set admin-speed {}
+set admin-duplex {}
+commit-buffer
+""".format(enable23.value, porttype23.value, speed23.value,
+           autoneg23.value, duplex23.value)
+
+interface24 = """
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+{}
+set port-type {}
+set auto-negotiation {}
+set admin-speed {}
+set admin-duplex {}
+commit-buffer
+""".format(enable24.value, porttype24.value, speed24.value,
+           autoneg24.value, duplex24.value)
+
+interface25 = """
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+{}
+set port-type {}
+set auto-negotiation {}
+set admin-speed {}
+set admin-duplex {}
+commit-buffer
+""".format(enable25.value, porttype25.value, speed25.value,
+           autoneg25.value, duplex25.value)
+
+interface26 = """
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+{}
+set port-type {}
+set auto-negotiation {}
+set admin-speed {}
+set admin-duplex {}
+commit-buffer
+""".format(enable26.value, porttype26.value, speed26.value,
+           autoneg26.value, duplex26.value)
+
+interface27 = """
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+{}
+set port-type {}
+set auto-negotiation {}
+set admin-speed {}
+set admin-duplex {}
+commit-buffer
+""".format(enable27.value, porttype27.value, speed27.value,
+           autoneg27.value, duplex27.value)
+
+interface28 = """
+scope eth-uplink
+scope fabric a
+enter interface Ethernet1/1
+{}
+set port-type {}
+set auto-negotiation {}
+set admin-speed {}
+set admin-duplex {}
+commit-buffer
+""".format(enable28.value, porttype28.value, speed28.value,
+           autoneg28.value, duplex28.value)
+
 found_radius = "RADIUS configuration found, server IP is {}".format(auth_ip.value)
 found_tacacs = "TACACS configuration found, server IP is {}".format(auth_ip.value)
 found_dns1 = "DNS configuration found, first server IP is {}".format(dns1.value)
@@ -259,4 +460,21 @@ print(syslog, file=open("FXOS_Config.txt", "a"))
 
 print(accesslist, file=open("FXOS_Config.txt", "a"))
 print()
+
+print(interface11, file=open("FXOS_Config.txt", "a"))
+print(interface12, file=open("FXOS_Config.txt", "a"))
+print(interface13, file=open("FXOS_Config.txt", "a"))
+print(interface14, file=open("FXOS_Config.txt", "a"))
+print(interface15, file=open("FXOS_Config.txt", "a"))
+print(interface16, file=open("FXOS_Config.txt", "a"))
+print(interface17, file=open("FXOS_Config.txt", "a"))
+print(interface18, file=open("FXOS_Config.txt", "a"))
+print(interface21, file=open("FXOS_Config.txt", "a"))
+print(interface22, file=open("FXOS_Config.txt", "a"))
+print(interface23, file=open("FXOS_Config.txt", "a"))
+print(interface24, file=open("FXOS_Config.txt", "a"))
+print(interface25, file=open("FXOS_Config.txt", "a"))
+print(interface26, file=open("FXOS_Config.txt", "a"))
+print(interface27, file=open("FXOS_Config.txt", "a"))
+print(interface28, file=open("FXOS_Config.txt", "a"))
 input('Configuration complete. Press enter key to exit')
