@@ -1,4 +1,3 @@
-
 # Imports all the defined strings from excel document
 from excel_strings import *
 
@@ -840,25 +839,6 @@ port_channel6_announce = """Port-channel6 is configured with member interfaces: 
                                                                                                 port_channel6_port3.value, port_channel6_port4.value,
                                                                                                 port_channel6_port5.value, port_channel6_port6.value,
                                                                                                 port_channel6_port7.value, port_channel6_port8.value)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 if port_channel1_configured.value == 'Yes ':
     print(port_channel1_properties, file=open("FXOS_Config.txt", "a"))
