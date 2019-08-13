@@ -152,7 +152,7 @@ commit-buffer
 interface12 = """
 scope eth-uplink
 scope fabric a
-enter interface Ethernet1/1
+enter interface Ethernet1/2
 {}
 set port-type {}
 set auto-negotiation {}
@@ -165,7 +165,7 @@ commit-buffer
 interface13 = """
 scope eth-uplink
 scope fabric a
-enter interface Ethernet1/1
+enter interface Ethernet1/3
 {}
 set port-type {}
 set auto-negotiation {}
@@ -178,7 +178,7 @@ commit-buffer
 interface14 = """
 scope eth-uplink
 scope fabric a
-enter interface Ethernet1/1
+enter interface Ethernet1/4
 {}
 set port-type {}
 set auto-negotiation {}
@@ -191,7 +191,7 @@ commit-buffer
 interface15 = """
 scope eth-uplink
 scope fabric a
-enter interface Ethernet1/1
+enter interface Ethernet1/5
 {}
 set port-type {}
 set auto-negotiation {}
@@ -204,7 +204,7 @@ commit-buffer
 interface16 = """
 scope eth-uplink
 scope fabric a
-enter interface Ethernet1/1
+enter interface Ethernet1/6
 {}
 set port-type {}
 set auto-negotiation {}
@@ -217,7 +217,7 @@ commit-buffer
 interface17 = """
 scope eth-uplink
 scope fabric a
-enter interface Ethernet1/1
+enter interface Ethernet1/7
 {}
 set port-type {}
 set auto-negotiation {}
@@ -230,7 +230,7 @@ commit-buffer
 interface18 = """
 scope eth-uplink
 scope fabric a
-enter interface Ethernet1/1
+enter interface Ethernet1/8
 {}
 set port-type {}
 set auto-negotiation {}
@@ -243,7 +243,7 @@ commit-buffer
 interface21 = """
 scope eth-uplink
 scope fabric a
-enter interface Ethernet1/1
+enter interface Ethernet2/1
 {}
 set port-type {}
 set auto-negotiation {}
@@ -256,7 +256,7 @@ commit-buffer
 interface22 = """
 scope eth-uplink
 scope fabric a
-enter interface Ethernet1/1
+enter interface Ethernet2/2
 {}
 set port-type {}
 set auto-negotiation {}
@@ -269,7 +269,7 @@ commit-buffer
 interface23 = """
 scope eth-uplink
 scope fabric a
-enter interface Ethernet1/1
+enter interface Ethernet2/3
 {}
 set port-type {}
 set auto-negotiation {}
@@ -282,7 +282,7 @@ commit-buffer
 interface24 = """
 scope eth-uplink
 scope fabric a
-enter interface Ethernet1/1
+enter interface Ethernet2/4
 {}
 set port-type {}
 set auto-negotiation {}
@@ -295,7 +295,7 @@ commit-buffer
 interface25 = """
 scope eth-uplink
 scope fabric a
-enter interface Ethernet1/1
+enter interface Ethernet2/5
 {}
 set port-type {}
 set auto-negotiation {}
@@ -308,7 +308,7 @@ commit-buffer
 interface26 = """
 scope eth-uplink
 scope fabric a
-enter interface Ethernet1/1
+enter interface Ethernet2/6
 {}
 set port-type {}
 set auto-negotiation {}
@@ -321,7 +321,7 @@ commit-buffer
 interface27 = """
 scope eth-uplink
 scope fabric a
-enter interface Ethernet1/1
+enter interface Ethernet2/7
 {}
 set port-type {}
 set auto-negotiation {}
@@ -334,7 +334,7 @@ commit-buffer
 interface28 = """
 scope eth-uplink
 scope fabric a
-enter interface Ethernet1/1
+enter interface Ethernet2/8
 {}
 set port-type {}
 set auto-negotiation {}
