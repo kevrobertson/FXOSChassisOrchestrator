@@ -1,0 +1,16 @@
+
+~~~~~~~~~~~~~~~~~~~~~~
+ FXOS DC1 Settings 
+~~~~~~~~~~~~~~~~~~~~~~
+scope system
+ scope services
+  create dns 8.8.8.8
+scope system
+ scope services
+  create dns 8.8.4.4
+scope system
+ scope services
+  create ntp-server 195.92.195.95
+scope system
+ scope services
+  create ntp-server 25.1.1.1
