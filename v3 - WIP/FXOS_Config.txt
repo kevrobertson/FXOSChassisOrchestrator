@@ -31,3 +31,14 @@ PrivPassword123
 scope monitoring
  enable snmp
  create snmp-trap 10.1.1.1
+ set community CiscoCommuntiy
+ set port 162
+ set version v2c
+ set notificationtype traps
+scope monitoring
+ enable snmp
+ create snmp-trap 10.10.1.1
+ set community CiscoCommuntiy
+ set port 162
+ set version v2c
+ set notificationtype traps

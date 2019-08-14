@@ -39,6 +39,10 @@ def snmp_traps(localFunction):
     print("scope monitoring")
     print(" enable snmp")
     print(" create snmp-trap %s" % localFunction[1])
+    print(" set community %s" % localFunction[2])
+    print(" set port %s" % int(localFunction[3]))
+    print(" set version %s" % localFunction[4])
+    print(" set notificationtype %s" % localFunction[5])
 dynDispatch = {
     'dns': dns_servers,
     'ntp': ntp_servers,
