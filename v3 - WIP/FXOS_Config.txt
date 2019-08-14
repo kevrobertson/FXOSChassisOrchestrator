@@ -14,3 +14,27 @@ scope system
 scope system
  scope services
   create ntp-server 25.1.1.1
+  set ntp-sha1-key-string 1
+7092334a7809ab9873124c08123df9097097fe72
+  exit
+ enable ntp-authentication
+
+~~~~~~~~~~~~~~~~~~~~~~
+ FXOS DC2 Settings 
+~~~~~~~~~~~~~~~~~~~~~~
+scope system
+ scope services
+  create dns 8.8.8.8
+scope system
+ scope services
+  create dns 8.8.4.4
+scope system
+ scope services
+  create ntp-server 195.92.195.95
+scope system
+ scope services
+  create ntp-server 25.1.1.1
+  set ntp-sha1-key-string 1
+7092334a7809ab9873124c08123df9097097fe72
+  exit
+ enable ntp-authentication
