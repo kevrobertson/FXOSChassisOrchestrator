@@ -18,23 +18,16 @@ scope system
 7092334a7809ab9873124c08123df9097097fe72
   exit
  enable ntp-authentication
-
-~~~~~~~~~~~~~~~~~~~~~~
- FXOS DC2 Settings 
-~~~~~~~~~~~~~~~~~~~~~~
-scope system
- scope services
-  create dns 8.8.8.8
-scope system
- scope services
-  create dns 8.8.4.4
-scope system
- scope services
-  create ntp-server 195.92.195.95
-scope system
- scope services
-  create ntp-server 25.1.1.1
-  set ntp-sha1-key-string 1
-7092334a7809ab9873124c08123df9097097fe72
-  exit
- enable ntp-authentication
+scope monitoring
+ enable snmp
+ set snmp syscontact Kevin Robertson
+ set snmp syslocation Qatar
+ create snmp-user kerober2
+Password123
+ set aes-128 no
+ set priv-password
+PrivPassword123
+PrivPassword123
+scope monitoring
+ enable snmp
+ create snmp-trap 10.1.1.1
