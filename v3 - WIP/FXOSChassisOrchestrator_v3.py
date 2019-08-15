@@ -7,7 +7,7 @@ def dns_servers(localFunction):
     print("scope system")
     print(" scope services")
     print("  create dns %s" % localFunction[1])
-    return 1
+
 
 def ntp_servers(localFunction):
     print("scope system")
@@ -43,11 +43,47 @@ def snmp_traps(localFunction):
     print(" set port %s" % int(localFunction[3]))
     print(" set version %s" % localFunction[4])
     print(" set notificationtype %s" % localFunction[5])
+
+def syslog_local(localFunction):
+    print("scope monitoring")
+    print(" %s syslog console" % localFunction[1])
+    print(" set syslog console level %s" % localFunction[2])
+    print(" %s syslog monitor" % localFunction[3])
+    print(" set syslog monitor level %s" % localFunction[4])
+    print(" %s sylog file" % localFunction[5])
+    print(" set syslog file name %s" % localFunction[6])
+    print(" set syslog file level %s" % localFunction[7])
+    print(" set syslog file size %s" % localFunction[8])
+
+def syslog_servers(localFunction):
+    print("scope monitoring")
+    print(" enable syslog remote-destination %s" % localFunction[1])
+    print(" set syslog remote-destination %s level %s" % (localFunction[1], localFunction[2]))
+    print(" set syslog remote-destination %s hostname %s" % (localFunction[1], localFunction[3]))
+    print(" set syslog remote-destination %s facility %s" % (localFunction[1], localFunction[4]))
+
+def syslog_local_sources(localFunction):
+    print("scope monitoring")
+    if localFunction[1] == 'enable':
+        print(" enable syslog source faults")
+    if localFunction[2] == 'enable':
+        print(" enable syslog source audits")
+    if localFunction[3] == 'enable':
+        print(" enable syslog source events")
+
+def radius(localFunction):
+    print("scope security")
+    print(" scope radius")
+    print("  set")
+    
 dynDispatch = {
     'dns': dns_servers,
     'ntp': ntp_servers,
     'snmp': snmp_properties,
-    'snmp trap': snmp_traps
+    'snmp trap': snmp_traps,
+    'syslog local': syslog_local,
+    'syslog server': syslog_servers,
+    'syslog local sources': syslog_local_sources
 }
 
 wb = xlrd.open_workbook('Spreadsheet.xlsx')
