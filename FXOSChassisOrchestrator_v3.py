@@ -8,7 +8,6 @@ def dns_servers(localFunction):
     print(" scope services")
     print("  create dns %s" % localFunction[1])
 
-
 def ntp_servers(localFunction):
     print("scope system")
     print(" scope services")
@@ -121,6 +120,16 @@ def snmp_access(localFunction):
         print(" scope services")
         print("  delete ip-block 0.0.0.0 0 snmp")
 
+def interfaces(localFunction):
+    print("scope eth-uplink")
+    print(" scope fabric a")
+    print("  enter interface %s" % localFunction[1])
+    print("  %s" % localFunction[2])
+    print("  set port-type %s" % localFunction[3])
+    print("  set auto-negotiation %s" % localFunction[4])
+    print("  set admin-speed %s" % localFunction[5])
+    print("  set admin-duplex %s" % localFunction[6])
+
 dynDispatch = {
     'dns': dns_servers,
     'ntp': ntp_servers,
@@ -134,7 +143,8 @@ dynDispatch = {
     'tacacs+': tacacs,
     'https acl': https_access,
     'ssh acl': ssh_access,
-    'snmp acl': snmp_access
+    'snmp acl': snmp_access,
+    'interface': interfaces
 }
 
 wb = xlrd.open_workbook('Spreadsheet.xlsx')
@@ -146,3 +156,4 @@ for i, ws in enumerate(wb.sheets()):
         callThis = rv[0].lower()
         if callThis in dynDispatch:
             dynDispatch[callThis](rv)
+
