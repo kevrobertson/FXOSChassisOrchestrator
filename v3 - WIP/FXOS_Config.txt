@@ -53,6 +53,7 @@ scope monitoring
  set syslog file size 4096.0
 scope monitoring
  enable syslog source faults
+ enable syslog source audits
  enable syslog source events
 scope monitoring
  enable syslog remote-destination Syslog1
@@ -64,3 +65,41 @@ scope monitoring
  set syslog remote-destination Syslog2 level errors
  set syslog remote-destination Syslog2 hostname 20.1.1.1
  set syslog remote-destination Syslog2 facility local5
+scope security
+ scope radius
+  create server 30.1.1.1
+   set authport 1812
+   set key
+radiuskey123
+radiuskey123
+   set order 1
+   set retries 3
+   set timeout 5
+scope security
+ scope radius
+  create server 40.1.1.1
+   set authport 1812
+   set key
+radiuskey1234
+radiuskey1234
+   set order 2
+   set retries 5
+   set timeout 3
+scope security
+  scope tacacs
+   create server 50.1.1.1
+   set port 49
+   set key
+tacacskey123
+tacacskey123
+   set order 1
+   set timeout 5
+scope security
+  scope tacacs
+   create server 60.1.1.1
+   set port 490
+   set key
+tacacskey1234
+tacacskey1234
+   set order 2
+   set timeout 3

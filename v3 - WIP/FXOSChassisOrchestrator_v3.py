@@ -74,8 +74,26 @@ def syslog_local_sources(localFunction):
 def radius(localFunction):
     print("scope security")
     print(" scope radius")
-    print("  set")
-    
+    print("  create server %s" % localFunction[1])
+    print("   set authport %s" % int(localFunction[2]))
+    print("   set key")
+    print("%s" % localFunction[3])
+    print("%s" % localFunction[3])
+    print("   set order %s" % int(localFunction[4]))
+    print("   set retries %s" % int(localFunction[5]))
+    print("   set timeout %s" % int(localFunction[6]))
+
+def tacacs(localFunction):
+    print("scope security")
+    print("  scope tacacs")
+    print("   create server %s" % localFunction[1])
+    print("   set port %s" % int(localFunction[2]))
+    print("   set key")
+    print("%s" % localFunction[3])
+    print("%s" % localFunction[3])
+    print("   set order %s" % int(localFunction[4]))
+    print("   set timeout %s" % int(localFunction[5]))
+
 dynDispatch = {
     'dns': dns_servers,
     'ntp': ntp_servers,
@@ -83,7 +101,10 @@ dynDispatch = {
     'snmp trap': snmp_traps,
     'syslog local': syslog_local,
     'syslog server': syslog_servers,
-    'syslog local sources': syslog_local_sources
+    'syslog local sources': syslog_local_sources,
+    'radius': radius,
+    'tacacs': tacacs,
+    'tacacs+': tacacs
 }
 
 wb = xlrd.open_workbook('Spreadsheet.xlsx')
