@@ -180,11 +180,121 @@ def standalone_asa(localFunction):
     print("   exit")
     print("  exit")
     print(" enter logical-device %s asa %s standalone" % (localFunction[2], int(localFunction[1])))
-    print("  create external-port-link %s %s asa" % (localFunction[4], localFunction[5]))
-    print('   set description "%s"' % localFunction[6])
+    print("  create external-port-link %s %s asa" % (localFunction[9], localFunction[10]))
+    print('   set description "%s"' % localFunction[11])
+    print("   exit")
 
+    if localFunction[12] == '':
+        pass
+    else:
+        print("  create external-port-link %s %s asa" % (localFunction[12], localFunction[13]))
+        print('   set description "%s"' % localFunction[14])
+        print("   exit")
+    if localFunction[15] == '':
+        pass
+    else:
+        print("  create external-port-link %s %s asa" % (localFunction[15], localFunction[16]))
+        print('   set description "%s"' % localFunction[17])
+        print("   exit")
+    if localFunction[18] == '':
+        pass
+    else:
+        print("  create external-port-link %s %s asa" % (localFunction[18], localFunction[19]))
+        print('   set description "%s"' % localFunction[20])
+        print("   exit")
+    if localFunction[21] == '':
+        pass
+    else:
+        print("  create external-port-link %s %s asa" % (localFunction[21], localFunction[22]))
+        print('   set description "%s"' % localFunction[23])
+        print("   exit")
 
+    print("  create mgmt-bootstrap asa")
+    print("   create bootstrap-key FIREWALL_MODE")
+    print("    set value %s" % localFunction[4])
+    print("    exit")
+    print("   create bootstrap-key-secret PASSWORD")
+    print("    set value")
+    print("%s" % localFunction[5])
+    print("%s" % localFunction[5])
+    print("    exit")
+    print("   create ipv4 %s default" % int(localFunction[1]))
+    print("    set ip %s mask %s" % (localFunction[6], localFunction[7]))
+    print("    set gateway %s" % localFunction[8])
 
+def standalone_ftd(localFunction):
+    print("scope ssa")
+    print(" scope app ftd %s" % localFunction[3])
+    print("  accept-license-agreement")
+    print("")
+    print("  commit-buffer")
+    print("  exit")
+    print(" scope slot %s" % int(localFunction[1]))
+    print("  enter app-instance ftd %s" % localFunction[2])
+    print("   set deploy-type native")
+    print('   set resource-profile-name ""')
+    print("   set startup-version %s" % localFunction[3])
+    print("   exit")
+    print("  exit")
+    print(" enter logical-device %s ftd %s standalone" % (localFunction[2], int(localFunction[1])))
+    print("  create external-port-link %s %s ftd" % (localFunction[9], localFunction[10]))
+    print('   set description "%s"' % localFunction[11])
+    print("   exit")
+
+    if localFunction[12] == '':
+        pass
+    else:
+        print("  create external-port-link %s %s ftd" % (localFunction[12], localFunction[13]))
+        print('   set description "%s"' % localFunction[14])
+        print("   exit")
+    if localFunction[15] == '':
+        pass
+    else:
+        print("  create external-port-link %s %s ftd" % (localFunction[15], localFunction[16]))
+        print('   set description "%s"' % localFunction[17])
+        print("   exit")
+    if localFunction[18] == '':
+        pass
+    else:
+        print("  create external-port-link %s %s ftd" % (localFunction[18], localFunction[19]))
+        print('   set description "%s"' % localFunction[20])
+        print("   exit")
+    if localFunction[21] == '':
+        pass
+    else:
+        print("  create external-port-link %s %s ftd" % (localFunction[21], localFunction[22]))
+        print('   set description "%s"' % localFunction[23])
+        print("   exit")
+
+    print("  create mgmt-bootstrap ftd")
+    print("   create bootstrap-key FIREWALL_MODE")
+    print("    set value %s" % localFunction[4])
+    print("   exit")
+    print("  create bootstrap-key FIREPOWER_MANAGER_IP")
+    print("   set value %s" % localFunction[TBD])
+    print("   exit")
+    print("  create bootstrap-key-secret REGISTRATION_KEY")
+    print("   set value")
+    print("%s" % localFunction[TBD])
+    print("%s" % localFunction[TBD])
+    print("   exit")
+    print("  create bootstrap-key-secret PASSWORD")
+    print("   set value")
+    print("%s" % localFunction[TBD])
+    print("%s" % localFunction[TBD])
+    print("   exit")
+    print("  create bootstrap-key FQDN")
+    print("   set value %s" % localFunction[TBD])
+    print("   exit")
+    print("  create bootstrap-key DNS_SERVERS")
+    print("   set value %s %s %s")
+    print("   exit")
+    print("  create bootstrap-key SEARCH_DOMAINS")
+    print("   set value %s")
+    print("   exit")
+    print("   create ipv4 %s default" % int(localFunction[1]))
+    print("    set ip %s mask %s" % (localFunction[6], localFunction[7]))
+    print("    set gateway %s" % localFunction[8])
 dynDispatch = {
     'dns': dns_servers,
     'ntp': ntp_servers,
@@ -200,8 +310,9 @@ dynDispatch = {
     'ssh acl': ssh_access,
     'snmp acl': snmp_access,
     'interface': interfaces,
-    'portchannel': portchannels,
-    'asa': standalone_asa
+    'port-channel': portchannels,
+    'asa': standalone_asa,
+    'ftd': standalone_ftd
 }
 
 wb = xlrd.open_workbook('Spreadsheet.xlsx')
