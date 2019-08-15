@@ -455,4 +455,29 @@ scope ssa
   create mgmt-bootstrap ftd
    create bootstrap-key FIREWALL_MODE
     set value routed
+   exit
   create bootstrap-key FIREPOWER_MANAGER_IP
+   set value 192.168.1.200
+   exit
+  create bootstrap-key-secret REGISTRATION_KEY
+   set value
+cisco123
+cisco123
+   exit
+  create bootstrap-key-secret PASSWORD
+   set value
+cisco123
+cisco123
+   exit
+  create bootstrap-key FQDN
+   set value ftd1.cisco.com
+   exit
+  create bootstrap-key DNS_SERVERS
+   set value 8.8.8.8,1.1.1.1,8.8.4.4
+   exit
+  create bootstrap-key SEARCH_DOMAINS
+   set value cisco.com
+   exit
+   create ipv4 2 default
+    set ip 192.168.1.20 mask 255.255.255.0
+    set gateway 192.168.1.1

@@ -237,33 +237,33 @@ def standalone_ftd(localFunction):
     print("   exit")
     print("  exit")
     print(" enter logical-device %s ftd %s standalone" % (localFunction[2], int(localFunction[1])))
-    print("  create external-port-link %s %s ftd" % (localFunction[9], localFunction[10]))
-    print('   set description "%s"' % localFunction[11])
+    print("  create external-port-link %s %s ftd" % (localFunction[16], localFunction[17]))
+    print('   set description "%s"' % localFunction[18])
     print("   exit")
 
-    if localFunction[12] == '':
+    if localFunction[19] == '':
         pass
     else:
-        print("  create external-port-link %s %s ftd" % (localFunction[12], localFunction[13]))
-        print('   set description "%s"' % localFunction[14])
+        print("  create external-port-link %s %s ftd" % (localFunction[19], localFunction[20]))
+        print('   set description "%s"' % localFunction[21])
         print("   exit")
-    if localFunction[15] == '':
+    if localFunction[22] == '':
         pass
     else:
-        print("  create external-port-link %s %s ftd" % (localFunction[15], localFunction[16]))
-        print('   set description "%s"' % localFunction[17])
+        print("  create external-port-link %s %s ftd" % (localFunction[22], localFunction[23]))
+        print('   set description "%s"' % localFunction[24])
         print("   exit")
-    if localFunction[18] == '':
+    if localFunction[25] == '':
         pass
     else:
-        print("  create external-port-link %s %s ftd" % (localFunction[18], localFunction[19]))
-        print('   set description "%s"' % localFunction[20])
+        print("  create external-port-link %s %s ftd" % (localFunction[25], localFunction[26]))
+        print('   set description "%s"' % localFunction[27])
         print("   exit")
-    if localFunction[21] == '':
+    if localFunction[28] == '':
         pass
     else:
-        print("  create external-port-link %s %s ftd" % (localFunction[21], localFunction[22]))
-        print('   set description "%s"' % localFunction[23])
+        print("  create external-port-link %s %s ftd" % (localFunction[28], localFunction[29]))
+        print('   set description "%s"' % localFunction[30])
         print("   exit")
 
     print("  create mgmt-bootstrap ftd")
@@ -271,30 +271,31 @@ def standalone_ftd(localFunction):
     print("    set value %s" % localFunction[4])
     print("   exit")
     print("  create bootstrap-key FIREPOWER_MANAGER_IP")
-    print("   set value %s" % localFunction[TBD])
+    print("   set value %s" % localFunction[9])
     print("   exit")
     print("  create bootstrap-key-secret REGISTRATION_KEY")
     print("   set value")
-    print("%s" % localFunction[TBD])
-    print("%s" % localFunction[TBD])
+    print("%s" % localFunction[10])
+    print("%s" % localFunction[10])
     print("   exit")
     print("  create bootstrap-key-secret PASSWORD")
     print("   set value")
-    print("%s" % localFunction[TBD])
-    print("%s" % localFunction[TBD])
+    print("%s" % localFunction[5])
+    print("%s" % localFunction[5])
     print("   exit")
     print("  create bootstrap-key FQDN")
-    print("   set value %s" % localFunction[TBD])
+    print("   set value %s" % localFunction[11])
     print("   exit")
     print("  create bootstrap-key DNS_SERVERS")
-    print("   set value %s %s %s")
+    print("   set value %s,%s,%s" % (localFunction[12], localFunction[13], localFunction[14]))
     print("   exit")
     print("  create bootstrap-key SEARCH_DOMAINS")
-    print("   set value %s")
+    print("   set value %s" % localFunction[15])
     print("   exit")
     print("   create ipv4 %s default" % int(localFunction[1]))
     print("    set ip %s mask %s" % (localFunction[6], localFunction[7]))
     print("    set gateway %s" % localFunction[8])
+
 dynDispatch = {
     'dns': dns_servers,
     'ntp': ntp_servers,
