@@ -179,6 +179,44 @@ scope eth-uplink
   set auto-negotiation off
   set admin-speed 1gbps
   set admin-duplex fullduplex
+scope eth-uplink
+ scope fabric a
+  create port-channel 10
+   set port-type data
+   set auto-negotiation off
+   set speed 1gbps
+   set duplex fullduplex
+   set port-channel-mode on
+   create member-port Ethernet1/1
+   create member-port Ethernet1/2
+   create member-port Ethernet1/3
+   create member-port Ethernet1/4
+   create member-port Ethernet1/5
+   create member-port Ethernet1/6
+   create member-port Ethernet1/7
+   create member-port Ethernet1/8
+scope eth-uplink
+ scope fabric a
+  create port-channel 20
+   set port-type data
+   set auto-negotiation off
+   set speed 1gbps
+   set duplex fullduplex
+   set port-channel-mode on
+   create member-port Ethernet2/1
+   create member-port Ethernet2/2
+   create member-port Ethernet2/3
+   create member-port Ethernet2/4
+scope eth-uplink
+ scope fabric a
+  create port-channel 30
+   set port-type data
+   set auto-negotiation off
+   set speed 1gbps
+   set duplex fullduplex
+   set port-channel-mode on
+   create member-port Ethernet2/5
+   create member-port Ethernet2/6
 
 ~~~~~~~~~~~~~~~~~~~~~~
  FXOS DC2 Settings 
@@ -360,3 +398,50 @@ scope eth-uplink
   set auto-negotiation off
   set admin-speed 1gbps
   set admin-duplex fullduplex
+scope eth-uplink
+ scope fabric a
+  create port-channel 10
+   set port-type data
+   set auto-negotiation off
+   set speed 1gbps
+   set duplex fullduplex
+   set port-channel-mode on
+   create member-port Ethernet1/1
+   create member-port Ethernet1/2
+   create member-port Ethernet1/3
+   create member-port Ethernet1/4
+   create member-port Ethernet1/5
+   create member-port Ethernet1/6
+   create member-port Ethernet1/7
+   create member-port Ethernet1/8
+scope eth-uplink
+ scope fabric a
+  create port-channel 20
+   set port-type data
+   set auto-negotiation off
+   set speed 1gbps
+   set duplex fullduplex
+   set port-channel-mode on
+   create member-port Ethernet2/1
+   create member-port Ethernet2/2
+   create member-port Ethernet2/3
+   create member-port Ethernet2/4
+scope eth-uplink
+ scope fabric a
+  create port-channel 30
+   set port-type mgmt
+   set auto-negotiation off
+   set speed 1gbps
+   set duplex fullduplex
+   set port-channel-mode on
+   create member-port Ethernet2/5
+   create member-port Ethernet2/6
+scope ssa
+ scope slot 1
+  enter app-instance asa ASA1
+   set startup-version 9.12.1
+   exit
+  exit
+ enter logical-device ASA1 asa 1 standalone
+  create external-port-link Portchannel30 management asa
+   set description "management link"

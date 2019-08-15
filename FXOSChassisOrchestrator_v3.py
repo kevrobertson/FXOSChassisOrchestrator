@@ -130,6 +130,61 @@ def interfaces(localFunction):
     print("  set admin-speed %s" % localFunction[5])
     print("  set admin-duplex %s" % localFunction[6])
 
+def portchannels(localFunction):
+    print("scope eth-uplink")
+    print(" scope fabric a")
+    print("  create port-channel %s" % int(localFunction[1]))
+    print("   set port-type %s" % localFunction[2])
+    print("   set auto-negotiation %s" % localFunction[3])
+    print("   set speed %s" % localFunction[4])
+    print("   set duplex %s" % localFunction[5])
+    print("   set port-channel-mode %s" % localFunction[6])
+    if localFunction[7] == '':
+        pass
+    else:
+        print("   create member-port %s" % localFunction[7])
+    if localFunction[8] == '':
+        pass
+    else:
+        print("   create member-port %s" % localFunction[8])
+    if localFunction[9] == '':
+        pass
+    else:
+        print("   create member-port %s" % localFunction[9])
+    if localFunction[10] == '':
+        pass
+    else:
+        print("   create member-port %s" % localFunction[10])
+    if localFunction[11] == '':
+        pass
+    else:
+        print("   create member-port %s" % localFunction[11])
+    if localFunction[12] == '':
+        pass
+    else:
+        print("   create member-port %s" % localFunction[12])
+    if localFunction[13] == '':
+        pass
+    else:
+        print("   create member-port %s" % localFunction[13])
+    if localFunction[14] == '':
+        pass
+    else:
+        print("   create member-port %s" % localFunction[14])
+
+def standalone_asa(localFunction):
+    print("scope ssa")
+    print(" scope slot %s" % int(localFunction[1]))
+    print("  enter app-instance asa %s" % localFunction[2])
+    print("   set startup-version %s" % localFunction[3])
+    print("   exit")
+    print("  exit")
+    print(" enter logical-device %s asa %s standalone" % (localFunction[2], int(localFunction[1])))
+    print("  create external-port-link %s %s asa" % (localFunction[4], localFunction[5]))
+    print('   set description "%s"' % localFunction[6])
+
+
+
 dynDispatch = {
     'dns': dns_servers,
     'ntp': ntp_servers,
@@ -144,7 +199,9 @@ dynDispatch = {
     'https acl': https_access,
     'ssh acl': ssh_access,
     'snmp acl': snmp_access,
-    'interface': interfaces
+    'interface': interfaces,
+    'portchannel': portchannels,
+    'asa': standalone_asa
 }
 
 wb = xlrd.open_workbook('Spreadsheet.xlsx')
