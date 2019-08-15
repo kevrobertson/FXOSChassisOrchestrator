@@ -86,8 +86,8 @@ radiuskey1234
    set retries 5
    set timeout 3
 scope security
-  scope tacacs
-   create server 50.1.1.1
+ scope tacacs
+  create server 50.1.1.1
    set port 49
    set key
 tacacskey123
@@ -95,11 +95,47 @@ tacacskey123
    set order 1
    set timeout 5
 scope security
-  scope tacacs
-   create server 60.1.1.1
+ scope tacacs
+  create server 60.1.1.1
    set port 490
    set key
 tacacskey1234
 tacacskey1234
    set order 2
    set timeout 3
+scope security
+ scope services
+  create ip-block 100.1.1.0 24 https
+scope system
+ scope services
+  delete ip-block 0.0.0.0 0 https
+scope security
+ scope services
+  create ip-block 200.1.1.0 25 https
+scope system
+ scope services
+  delete ip-block 0.0.0.0 0 https
+scope security
+ scope services
+  create ip-block 125.1.1.0 26 ssh
+scope system
+ scope services
+  delete ip-block 0.0.0.0 0 ssh
+scope security
+ scope services
+  create ip-block 225.1.1.0 27 ssh
+scope system
+ scope services
+  delete ip-block 0.0.0.0 0 ssh
+scope security
+ scope services
+  create ip-block 150.1.1.0 28 snmp
+scope system
+ scope services
+  delete ip-block 0.0.0.0 0 snmp
+scope security
+ scope services
+  create ip-block 250.1.1.0 29 snmp
+scope system
+ scope services
+  delete ip-block 0.0.0.0 0 snmp

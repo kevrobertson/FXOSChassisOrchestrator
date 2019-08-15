@@ -85,14 +85,41 @@ def radius(localFunction):
 
 def tacacs(localFunction):
     print("scope security")
-    print("  scope tacacs")
-    print("   create server %s" % localFunction[1])
+    print(" scope tacacs")
+    print("  create server %s" % localFunction[1])
     print("   set port %s" % int(localFunction[2]))
     print("   set key")
     print("%s" % localFunction[3])
     print("%s" % localFunction[3])
     print("   set order %s" % int(localFunction[4]))
     print("   set timeout %s" % int(localFunction[5]))
+
+def https_access(localFunction):
+    print("scope security")
+    print(" scope services")
+    print("  create ip-block %s %s https" % (localFunction[1], int(localFunction[2])))
+    if localFunction[1] != '':
+        print("scope system")
+        print(" scope services")
+        print("  delete ip-block 0.0.0.0 0 https")
+
+def ssh_access(localFunction):
+    print("scope security")
+    print(" scope services")
+    print("  create ip-block %s %s ssh" % (localFunction[1], int(localFunction[2])))
+    if localFunction[1] != '':
+        print("scope system")
+        print(" scope services")
+        print("  delete ip-block 0.0.0.0 0 ssh")
+
+def snmp_access(localFunction):
+    print("scope security")
+    print(" scope services")
+    print("  create ip-block %s %s snmp" % (localFunction[1], int(localFunction[2])))
+    if localFunction[1] != '':
+        print("scope system")
+        print(" scope services")
+        print("  delete ip-block 0.0.0.0 0 snmp")
 
 dynDispatch = {
     'dns': dns_servers,
@@ -104,7 +131,10 @@ dynDispatch = {
     'syslog local sources': syslog_local_sources,
     'radius': radius,
     'tacacs': tacacs,
-    'tacacs+': tacacs
+    'tacacs+': tacacs,
+    'https acl': https_access,
+    'ssh acl': ssh_access,
+    'snmp acl': snmp_access
 }
 
 wb = xlrd.open_workbook('Spreadsheet.xlsx')
@@ -116,4 +146,3 @@ for i, ws in enumerate(wb.sheets()):
         callThis = rv[0].lower()
         if callThis in dynDispatch:
             dynDispatch[callThis](rv)
-
