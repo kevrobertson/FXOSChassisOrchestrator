@@ -179,6 +179,127 @@ scope eth-uplink
   set auto-negotiation off
   set admin-speed 1gbps
   set admin-duplex fullduplex
+scope eth-uplink
+ scope fabric a
+  create port-channel 10
+   set port-type data
+   set auto-negotiation off
+   set speed 1gbps
+   set duplex fullduplex
+   set port-channel-mode on
+   create member-port Ethernet1/1
+   create member-port Ethernet1/2
+   create member-port Ethernet1/3
+   create member-port Ethernet1/4
+   create member-port Ethernet1/5
+scope eth-uplink
+ scope fabric a
+  create port-channel 20
+   set port-type data
+   set auto-negotiation off
+   set speed 1gbps
+   set duplex fullduplex
+   set port-channel-mode on
+   create member-port Ethernet2/1
+   create member-port Ethernet2/2
+   create member-port Ethernet2/3
+   create member-port Ethernet2/4
+scope eth-uplink
+ scope fabric a
+  create port-channel 30
+   set port-type mgmt
+   set auto-negotiation off
+   set speed 1gbps
+   set duplex fullduplex
+   set port-channel-mode on
+   create member-port Ethernet2/5
+   create member-port Ethernet2/6
+scope ssa
+ scope slot 1
+  enter app-instance asa ASA1
+   set startup-version 9.12.1
+   exit
+  exit
+ enter logical-device ASA1 asa 1 standalone
+  create external-port-link Port-channel 30 management asa
+   set description "management interface"
+   exit
+  create external-port-link Port-channel 10 inside asa
+   set description "inside interface"
+   exit
+  create external-port-link Port-channel 20 outside asa
+   set description "outside interface"
+   exit
+  create external-port-link Ethernet2/7 DMZ asa
+   set description "DMZ interface"
+   exit
+  create external-port-link Ethernet2/8 DMZ2 asa
+   set description "DMZ2 interface"
+   exit
+  create mgmt-bootstrap asa
+   create bootstrap-key FIREWALL_MODE
+    set value routed
+    exit
+   create bootstrap-key-secret PASSWORD
+    set value
+cisco123
+cisco123
+    exit
+   create ipv4 1 default
+    set ip 192.168.1.10 mask 255.255.255.0
+    set gateway 192.168.1.1
+scope ssa
+ scope app ftd 6.2.3.83
+  accept-license-agreement
+
+  commit-buffer
+  exit
+ scope slot 2
+  enter app-instance ftd FTD1
+   set deploy-type native
+   set resource-profile-name ""
+   set startup-version 6.2.3.83
+   exit
+  exit
+ enter logical-device FTD1 ftd 2 standalone
+  create external-port-link Ethernet1/8 management ftd
+   set description "management interface"
+   exit
+  create external-port-link Ethernet1/6 inside ftd
+   set description "inside interface"
+   exit
+  create external-port-link Ethernet1/7 outside ftd
+   set description "outside interface"
+   exit
+  create mgmt-bootstrap ftd
+   create bootstrap-key FIREWALL_MODE
+    set value routed
+   exit
+  create bootstrap-key FIREPOWER_MANAGER_IP
+   set value 192.168.1.200
+   exit
+  create bootstrap-key-secret REGISTRATION_KEY
+   set value
+cisco123
+cisco123
+   exit
+  create bootstrap-key-secret PASSWORD
+   set value
+cisco123
+cisco123
+   exit
+  create bootstrap-key FQDN
+   set value ftd1.cisco.com
+   exit
+  create bootstrap-key DNS_SERVERS
+   set value 8.8.8.8,1.1.1.1,8.8.4.4
+   exit
+  create bootstrap-key SEARCH_DOMAINS
+   set value cisco.com
+   exit
+   create ipv4 2 default
+    set ip 192.168.1.20 mask 255.255.255.0
+    set gateway 192.168.1.1
 
 ~~~~~~~~~~~~~~~~~~~~~~
  FXOS DC2 Settings 
