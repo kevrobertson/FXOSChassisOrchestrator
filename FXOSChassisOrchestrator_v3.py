@@ -139,37 +139,21 @@ def portchannels(localFunction):
     print("   set speed %s" % localFunction[4])
     print("   set duplex %s" % localFunction[5])
     print("   set port-channel-mode %s" % localFunction[6])
-    if localFunction[7] == '':
-        pass
-    else:
+    if localFunction[7] != '':
         print("   create member-port %s" % localFunction[7])
-    if localFunction[8] == '':
-        pass
-    else:
+    if localFunction[8] != '':
         print("   create member-port %s" % localFunction[8])
-    if localFunction[9] == '':
-        pass
-    else:
+    if localFunction[9] != '':
         print("   create member-port %s" % localFunction[9])
-    if localFunction[10] == '':
-        pass
-    else:
+    if localFunction[10] != '':
         print("   create member-port %s" % localFunction[10])
-    if localFunction[11] == '':
-        pass
-    else:
+    if localFunction[11] != '':
         print("   create member-port %s" % localFunction[11])
-    if localFunction[12] == '':
-        pass
-    else:
+    if localFunction[12] != '':
         print("   create member-port %s" % localFunction[12])
-    if localFunction[13] == '':
-        pass
-    else:
+    if localFunction[13] != '':
         print("   create member-port %s" % localFunction[13])
-    if localFunction[14] == '':
-        pass
-    else:
+    if localFunction[14] != '':
         print("   create member-port %s" % localFunction[14])
 
 def standalone_asa(localFunction):
@@ -183,32 +167,22 @@ def standalone_asa(localFunction):
     print("  create external-port-link %s %s asa" % (localFunction[9], localFunction[10]))
     print('   set description "%s"' % localFunction[11])
     print("   exit")
-
-    if localFunction[12] == '':
-        pass
-    else:
+    if localFunction[12] != '':
         print("  create external-port-link %s %s asa" % (localFunction[12], localFunction[13]))
         print('   set description "%s"' % localFunction[14])
         print("   exit")
-    if localFunction[15] == '':
-        pass
-    else:
+    if localFunction[15] != '':
         print("  create external-port-link %s %s asa" % (localFunction[15], localFunction[16]))
         print('   set description "%s"' % localFunction[17])
         print("   exit")
-    if localFunction[18] == '':
-        pass
-    else:
+    if localFunction[18] != '':
         print("  create external-port-link %s %s asa" % (localFunction[18], localFunction[19]))
         print('   set description "%s"' % localFunction[20])
         print("   exit")
-    if localFunction[21] == '':
-        pass
-    else:
+    if localFunction[21] != '':
         print("  create external-port-link %s %s asa" % (localFunction[21], localFunction[22]))
         print('   set description "%s"' % localFunction[23])
         print("   exit")
-
     print("  create mgmt-bootstrap asa")
     print("   create bootstrap-key FIREWALL_MODE")
     print("    set value %s" % localFunction[4])
@@ -240,32 +214,22 @@ def standalone_ftd(localFunction):
     print("  create external-port-link %s %s ftd" % (localFunction[16], localFunction[17]))
     print('   set description "%s"' % localFunction[18])
     print("   exit")
-
-    if localFunction[19] == '':
-        pass
-    else:
+    if localFunction[19] != '':
         print("  create external-port-link %s %s ftd" % (localFunction[19], localFunction[20]))
         print('   set description "%s"' % localFunction[21])
         print("   exit")
-    if localFunction[22] == '':
-        pass
-    else:
+    if localFunction[22] != '':
         print("  create external-port-link %s %s ftd" % (localFunction[22], localFunction[23]))
         print('   set description "%s"' % localFunction[24])
         print("   exit")
-    if localFunction[25] == '':
-        pass
-    else:
+    if localFunction[25] != '':
         print("  create external-port-link %s %s ftd" % (localFunction[25], localFunction[26]))
         print('   set description "%s"' % localFunction[27])
         print("   exit")
-    if localFunction[28] == '':
-        pass
-    else:
+    if localFunction[28] != '':
         print("  create external-port-link %s %s ftd" % (localFunction[28], localFunction[29]))
         print('   set description "%s"' % localFunction[30])
         print("   exit")
-
     print("  create mgmt-bootstrap ftd")
     print("   create bootstrap-key FIREWALL_MODE")
     print("    set value %s" % localFunction[4])
