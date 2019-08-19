@@ -13,15 +13,16 @@ def ntp_servers(localFunction):
     print(" scope services")
     print("  create ntp-server %s" % localFunction[1])
     if localFunction[2] != '':
-        print("  set ntp-sha1-key-string %s" % int(localFunction[2]))
-        print("%s" % localFunction[3])
+        print("  set ntp-sha1-key-id %s" % int(localFunction[2]))
+        print("  set ntp-sha1-key-string")
+        print("%s" % localFunction[3]) # issues with this currently, won't apply.
         print("  exit")
         print(" enable ntp-authentication")
 
 def snmp_properties(localFunction):
     print("scope monitoring")
     print(" enable snmp")
-    print(" set snmp syscontact %s" % localFunction[3])
+    print(' set snmp syscontact "%s"' % localFunction[3])
     print(" set snmp syslocation %s" % localFunction[4])
     if localFunction[1] != 'v3':
         print(" set snmp community")
@@ -38,7 +39,8 @@ def snmp_traps(localFunction):
     print("scope monitoring")
     print(" enable snmp")
     print(" create snmp-trap %s" % localFunction[1])
-    print(" set community %s" % localFunction[2])
+    print(" set community ")
+    print("%s" % localFunction[2])
     print(" set port %s" % int(localFunction[3]))
     print(" set version %s" % localFunction[4])
     print(" set notificationtype %s" % localFunction[5])
@@ -49,7 +51,7 @@ def syslog_local(localFunction):
     print(" set syslog console level %s" % localFunction[2])
     print(" %s syslog monitor" % localFunction[3])
     print(" set syslog monitor level %s" % localFunction[4])
-    print(" %s sylog file" % localFunction[5])
+    print(" %s syslog file" % localFunction[5])
     print(" set syslog file name %s" % localFunction[6])
     print(" set syslog file level %s" % localFunction[7])
     print(" set syslog file size %s" % localFunction[8])
@@ -94,7 +96,7 @@ def tacacs(localFunction):
     print("   set timeout %s" % int(localFunction[5]))
 
 def https_access(localFunction):
-    print("scope security")
+    print("scope system")
     print(" scope services")
     print("  create ip-block %s %s https" % (localFunction[1], int(localFunction[2])))
     if localFunction[1] != '':
@@ -103,7 +105,7 @@ def https_access(localFunction):
         print("  delete ip-block 0.0.0.0 0 https")
 
 def ssh_access(localFunction):
-    print("scope security")
+    print("scope system")
     print(" scope services")
     print("  create ip-block %s %s ssh" % (localFunction[1], int(localFunction[2])))
     if localFunction[1] != '':
@@ -112,7 +114,7 @@ def ssh_access(localFunction):
         print("  delete ip-block 0.0.0.0 0 ssh")
 
 def snmp_access(localFunction):
-    print("scope security")
+    print("scope system")
     print(" scope services")
     print("  create ip-block %s %s snmp" % (localFunction[1], int(localFunction[2])))
     if localFunction[1] != '':
@@ -141,20 +143,29 @@ def portchannels(localFunction):
     print("   set port-channel-mode %s" % localFunction[6])
     if localFunction[7] != '':
         print("   create member-port %s" % localFunction[7])
+        print("   exit")
     if localFunction[8] != '':
         print("   create member-port %s" % localFunction[8])
+        print("   exit")
     if localFunction[9] != '':
         print("   create member-port %s" % localFunction[9])
+        print("   exit")
     if localFunction[10] != '':
         print("   create member-port %s" % localFunction[10])
+        print("   exit")
     if localFunction[11] != '':
         print("   create member-port %s" % localFunction[11])
+        print("   exit")
     if localFunction[12] != '':
         print("   create member-port %s" % localFunction[12])
+        print("   exit")
     if localFunction[13] != '':
         print("   create member-port %s" % localFunction[13])
+        print("   exit")
     if localFunction[14] != '':
         print("   create member-port %s" % localFunction[14])
+        print("   exit")
+    print("   enable")
 
 def standalone_asa(localFunction):
     print("scope ssa")
@@ -164,24 +175,16 @@ def standalone_asa(localFunction):
     print("   exit")
     print("  exit")
     print(" enter logical-device %s asa %s standalone" % (localFunction[2], int(localFunction[1])))
-    print("  create external-port-link %s %s asa" % (localFunction[9], localFunction[10]))
+    print("  create external-port-link %s %s asa" % (localFunction[10], localFunction[9]))
     print('   set description "%s"' % localFunction[11])
     print("   exit")
     if localFunction[12] != '':
-        print("  create external-port-link %s %s asa" % (localFunction[12], localFunction[13]))
+        print("  create external-port-link %s %s asa" % (localFunction[13], localFunction[12]))
         print('   set description "%s"' % localFunction[14])
         print("   exit")
     if localFunction[15] != '':
-        print("  create external-port-link %s %s asa" % (localFunction[15], localFunction[16]))
+        print("  create external-port-link %s %s asa" % (localFunction[16], localFunction[15]))
         print('   set description "%s"' % localFunction[17])
-        print("   exit")
-    if localFunction[18] != '':
-        print("  create external-port-link %s %s asa" % (localFunction[18], localFunction[19]))
-        print('   set description "%s"' % localFunction[20])
-        print("   exit")
-    if localFunction[21] != '':
-        print("  create external-port-link %s %s asa" % (localFunction[21], localFunction[22]))
-        print('   set description "%s"' % localFunction[23])
         print("   exit")
     print("  create mgmt-bootstrap asa")
     print("   create bootstrap-key FIREWALL_MODE")
@@ -211,24 +214,16 @@ def standalone_ftd(localFunction):
     print("   exit")
     print("  exit")
     print(" enter logical-device %s ftd %s standalone" % (localFunction[2], int(localFunction[1])))
-    print("  create external-port-link %s %s ftd" % (localFunction[16], localFunction[17]))
+    print("  create external-port-link %s %s ftd" % (localFunction[17], localFunction[16]))
     print('   set description "%s"' % localFunction[18])
     print("   exit")
     if localFunction[19] != '':
-        print("  create external-port-link %s %s ftd" % (localFunction[19], localFunction[20]))
+        print("  create external-port-link %s %s ftd" % (localFunction[20], localFunction[19]))
         print('   set description "%s"' % localFunction[21])
         print("   exit")
     if localFunction[22] != '':
-        print("  create external-port-link %s %s ftd" % (localFunction[22], localFunction[23]))
+        print("  create external-port-link %s %s ftd" % (localFunction[23], localFunction[22]))
         print('   set description "%s"' % localFunction[24])
-        print("   exit")
-    if localFunction[25] != '':
-        print("  create external-port-link %s %s ftd" % (localFunction[25], localFunction[26]))
-        print('   set description "%s"' % localFunction[27])
-        print("   exit")
-    if localFunction[28] != '':
-        print("  create external-port-link %s %s ftd" % (localFunction[28], localFunction[29]))
-        print('   set description "%s"' % localFunction[30])
         print("   exit")
     print("  create mgmt-bootstrap ftd")
     print("   create bootstrap-key FIREWALL_MODE")
@@ -256,7 +251,7 @@ def standalone_ftd(localFunction):
     print("  create bootstrap-key SEARCH_DOMAINS")
     print("   set value %s" % localFunction[15])
     print("   exit")
-    print("   create ipv4 %s default" % int(localFunction[1]))
+    print("   create ipv4 %s firepower" % int(localFunction[1]))
     print("    set ip %s mask %s" % (localFunction[6], localFunction[7]))
     print("    set gateway %s" % localFunction[8])
 

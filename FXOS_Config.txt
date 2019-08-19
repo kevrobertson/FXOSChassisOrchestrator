@@ -14,37 +14,14 @@ scope system
 scope system
  scope services
   create ntp-server 25.1.1.1
-  set ntp-sha1-key-string 1
+  set ntp-sha1-key-id 1
+  set ntp-sha1-key-string
 7092334a7809ab9873124c08123df9097097fe72
   exit
  enable ntp-authentication
-scope eth-uplink
- scope fabric a
-  enter interface Ethernet1/1
-  enable
-  set port-type data
-  set auto-negotiation off
-  set admin-speed 1gbps
-  set admin-duplex fullduplex
-scope eth-uplink
- scope fabric a
-  enter interface Ethernet1/2
-  enable
-  set port-type data
-  set auto-negotiation off
-  set admin-speed 1gbps
-  set admin-duplex fullduplex
-scope eth-uplink
- scope fabric a
-  enter interface Ethernet1/3
-  enable
-  set port-type data
-  set auto-negotiation off
-  set admin-speed 1gbps
-  set admin-duplex fullduplex
 scope monitoring
  enable snmp
- set snmp syscontact Kevin Robertson
+ set snmp syscontact "Kevin Robertson"
  set snmp syslocation Qatar
  create snmp-user kerober2
 Password123
@@ -55,14 +32,16 @@ PrivPassword123
 scope monitoring
  enable snmp
  create snmp-trap 10.1.1.1
- set community CiscoCommuntiy
+ set community 
+CiscoCommunity
  set port 162
  set version v2c
  set notificationtype traps
 scope monitoring
  enable snmp
  create snmp-trap 20.1.1.1
- set community CiscoCommuntiy
+ set community 
+CiscoCommunity
  set port 162
  set version v2c
  set notificationtype traps
@@ -71,7 +50,7 @@ scope monitoring
  set syslog console level emergencies
  enable syslog monitor
  set syslog monitor level information
- enable sylog file
+ enable syslog file
  set syslog file name syslog_file
  set syslog file level debugging
  set syslog file size 4096.0
@@ -80,15 +59,15 @@ scope monitoring
  enable syslog source audits
  enable syslog source events
 scope monitoring
- enable syslog remote-destination Syslog1
- set syslog remote-destination Syslog1 level information
- set syslog remote-destination Syslog1 hostname 10.1.1.1
- set syslog remote-destination Syslog1 facility local7
+ enable syslog remote-destination server-1
+ set syslog remote-destination server-1 level information
+ set syslog remote-destination server-1 hostname 10.1.1.1
+ set syslog remote-destination server-1 facility local7
 scope monitoring
- enable syslog remote-destination Syslog2
- set syslog remote-destination Syslog2 level errors
- set syslog remote-destination Syslog2 hostname 20.1.1.1
- set syslog remote-destination Syslog2 facility local5
+ enable syslog remote-destination server-2
+ set syslog remote-destination server-2 level errors
+ set syslog remote-destination server-2 hostname 20.1.1.1
+ set syslog remote-destination server-2 facility local5
 scope security
  scope radius
   create server 30.1.1.1
@@ -127,37 +106,37 @@ tacacskey1234
 tacacskey1234
    set order 2
    set timeout 3
-scope security
+scope system
  scope services
   create ip-block 100.1.1.0 24 https
 scope system
  scope services
   delete ip-block 0.0.0.0 0 https
-scope security
+scope system
  scope services
   create ip-block 200.1.1.0 25 https
 scope system
  scope services
   delete ip-block 0.0.0.0 0 https
-scope security
+scope system
  scope services
   create ip-block 125.1.1.0 26 ssh
 scope system
  scope services
   delete ip-block 0.0.0.0 0 ssh
-scope security
+scope system
  scope services
   create ip-block 225.1.1.0 27 ssh
 scope system
  scope services
   delete ip-block 0.0.0.0 0 ssh
-scope security
+scope system
  scope services
   create ip-block 150.1.1.0 28 snmp
 scope system
  scope services
   delete ip-block 0.0.0.0 0 snmp
-scope security
+scope system
  scope services
   create ip-block 250.1.1.0 29 snmp
 scope system
@@ -168,7 +147,7 @@ scope eth-uplink
   enter interface Ethernet1/1
   enable
   set port-type data
-  set auto-negotiation off
+  set auto-negotiation no
   set admin-speed 1gbps
   set admin-duplex fullduplex
 scope eth-uplink
@@ -176,65 +155,73 @@ scope eth-uplink
   enter interface Ethernet1/2
   enable
   set port-type data
-  set auto-negotiation off
+  set auto-negotiation no
   set admin-speed 1gbps
   set admin-duplex fullduplex
 scope eth-uplink
  scope fabric a
   create port-channel 10
    set port-type data
-   set auto-negotiation off
+   set auto-negotiation no
    set speed 1gbps
    set duplex fullduplex
    set port-channel-mode on
    create member-port Ethernet1/1
+   exit
    create member-port Ethernet1/2
+   exit
    create member-port Ethernet1/3
+   exit
    create member-port Ethernet1/4
+   exit
    create member-port Ethernet1/5
+   exit
+   enable
 scope eth-uplink
  scope fabric a
   create port-channel 20
    set port-type data
-   set auto-negotiation off
+   set auto-negotiation no
    set speed 1gbps
    set duplex fullduplex
    set port-channel-mode on
    create member-port Ethernet2/1
+   exit
    create member-port Ethernet2/2
+   exit
    create member-port Ethernet2/3
+   exit
    create member-port Ethernet2/4
+   exit
+   enable
 scope eth-uplink
  scope fabric a
   create port-channel 30
    set port-type mgmt
-   set auto-negotiation off
+   set auto-negotiation no
    set speed 1gbps
    set duplex fullduplex
    set port-channel-mode on
    create member-port Ethernet2/5
+   exit
    create member-port Ethernet2/6
+   exit
+   enable
 scope ssa
  scope slot 1
   enter app-instance asa ASA1
-   set startup-version 9.12.1
+   set startup-version 9.8.2
    exit
   exit
  enter logical-device ASA1 asa 1 standalone
-  create external-port-link Port-channel 30 management asa
+  create external-port-link management Port-channel30 asa
    set description "management interface"
    exit
-  create external-port-link Port-channel 10 inside asa
+  create external-port-link inside Port-channel10 asa
    set description "inside interface"
    exit
-  create external-port-link Port-channel 20 outside asa
+  create external-port-link outside Port-channel20 asa
    set description "outside interface"
-   exit
-  create external-port-link Ethernet2/7 DMZ asa
-   set description "DMZ interface"
-   exit
-  create external-port-link Ethernet2/8 DMZ2 asa
-   set description "DMZ2 interface"
    exit
   create mgmt-bootstrap asa
    create bootstrap-key FIREWALL_MODE
@@ -254,21 +241,21 @@ scope ssa
 
   commit-buffer
   exit
- scope slot 2
+ scope slot 1
   enter app-instance ftd FTD1
    set deploy-type native
    set resource-profile-name ""
    set startup-version 6.2.3.83
    exit
   exit
- enter logical-device FTD1 ftd 2 standalone
-  create external-port-link Ethernet1/8 management ftd
+ enter logical-device FTD1 ftd 1 standalone
+  create external-port-link management Ethernet1/8 ftd
    set description "management interface"
    exit
-  create external-port-link Ethernet1/6 inside ftd
+  create external-port-link inside Ethernet1/6 ftd
    set description "inside interface"
    exit
-  create external-port-link Ethernet1/7 outside ftd
+  create external-port-link outside Ethernet1/7 ftd
    set description "outside interface"
    exit
   create mgmt-bootstrap ftd
@@ -297,7 +284,7 @@ cisco123
   create bootstrap-key SEARCH_DOMAINS
    set value cisco.com
    exit
-   create ipv4 2 default
+   create ipv4 1 firepower
     set ip 192.168.1.20 mask 255.255.255.0
     set gateway 192.168.1.1
 
@@ -316,7 +303,8 @@ scope system
 scope system
  scope services
   create ntp-server 25.1.1.1
-  set ntp-sha1-key-string 1
+  set ntp-sha1-key-id 1
+  set ntp-sha1-key-string
 7092334a7809ab9873124c08123df9097097fe72
   exit
  enable ntp-authentication
@@ -346,7 +334,7 @@ scope eth-uplink
   set admin-duplex fullduplex
 scope monitoring
  enable snmp
- set snmp syscontact Kevin Robertson
+ set snmp syscontact "Kevin Robertson"
  set snmp syslocation Qatar
  create snmp-user kerober2
 Password123
@@ -357,14 +345,16 @@ PrivPassword123
 scope monitoring
  enable snmp
  create snmp-trap 10.1.1.1
- set community CiscoCommuntiy
+ set community 
+CiscoCommuntiy
  set port 162
  set version v2c
  set notificationtype traps
 scope monitoring
  enable snmp
  create snmp-trap 20.1.1.1
- set community CiscoCommuntiy
+ set community 
+CiscoCommuntiy
  set port 162
  set version v2c
  set notificationtype traps
@@ -373,7 +363,7 @@ scope monitoring
  set syslog console level emergencies
  enable syslog monitor
  set syslog monitor level information
- enable sylog file
+ enable syslog file
  set syslog file name syslog_file
  set syslog file level debugging
  set syslog file size 4096.0
@@ -429,37 +419,37 @@ tacacskey1234
 tacacskey1234
    set order 2
    set timeout 3
-scope security
+scope system
  scope services
   create ip-block 100.1.1.0 24 https
 scope system
  scope services
   delete ip-block 0.0.0.0 0 https
-scope security
+scope system
  scope services
   create ip-block 200.1.1.0 25 https
 scope system
  scope services
   delete ip-block 0.0.0.0 0 https
-scope security
+scope system
  scope services
   create ip-block 125.1.1.0 26 ssh
 scope system
  scope services
   delete ip-block 0.0.0.0 0 ssh
-scope security
+scope system
  scope services
   create ip-block 225.1.1.0 27 ssh
 scope system
  scope services
   delete ip-block 0.0.0.0 0 ssh
-scope security
+scope system
  scope services
   create ip-block 150.1.1.0 28 snmp
 scope system
  scope services
   delete ip-block 0.0.0.0 0 snmp
-scope security
+scope system
  scope services
   create ip-block 250.1.1.0 29 snmp
 scope system
@@ -490,10 +480,16 @@ scope eth-uplink
    set duplex fullduplex
    set port-channel-mode on
    create member-port Ethernet1/1
+   exit
    create member-port Ethernet1/2
+   exit
    create member-port Ethernet1/3
+   exit
    create member-port Ethernet1/4
+   exit
    create member-port Ethernet1/5
+   exit
+   enable
 scope eth-uplink
  scope fabric a
   create port-channel 20
@@ -503,9 +499,14 @@ scope eth-uplink
    set duplex fullduplex
    set port-channel-mode on
    create member-port Ethernet2/1
+   exit
    create member-port Ethernet2/2
+   exit
    create member-port Ethernet2/3
+   exit
    create member-port Ethernet2/4
+   exit
+   enable
 scope eth-uplink
  scope fabric a
   create port-channel 30
@@ -515,7 +516,10 @@ scope eth-uplink
    set duplex fullduplex
    set port-channel-mode on
    create member-port Ethernet2/5
+   exit
    create member-port Ethernet2/6
+   exit
+   enable
 scope ssa
  scope slot 1
   enter app-instance asa ASA1
@@ -523,20 +527,14 @@ scope ssa
    exit
   exit
  enter logical-device ASA1 asa 1 standalone
-  create external-port-link Port-channel 30 management asa
+  create external-port-link management Port-channel 30 asa
    set description "management interface"
    exit
-  create external-port-link Port-channel 10 inside asa
+  create external-port-link inside Port-channel 10 asa
    set description "inside interface"
    exit
-  create external-port-link Port-channel 20 outside asa
+  create external-port-link outside Port-channel 20 asa
    set description "outside interface"
-   exit
-  create external-port-link Ethernet2/7 DMZ asa
-   set description "DMZ interface"
-   exit
-  create external-port-link Ethernet2/8 DMZ2 asa
-   set description "DMZ2 interface"
    exit
   create mgmt-bootstrap asa
    create bootstrap-key FIREWALL_MODE
@@ -564,13 +562,13 @@ scope ssa
    exit
   exit
  enter logical-device FTD1 ftd 2 standalone
-  create external-port-link Ethernet1/8 management ftd
+  create external-port-link management Ethernet1/8 ftd
    set description "management interface"
    exit
-  create external-port-link Ethernet1/6 inside ftd
+  create external-port-link inside Ethernet1/6 ftd
    set description "inside interface"
    exit
-  create external-port-link Ethernet1/7 outside ftd
+  create external-port-link outside Ethernet1/7 ftd
    set description "outside interface"
    exit
   create mgmt-bootstrap ftd
@@ -599,6 +597,6 @@ cisco123
   create bootstrap-key SEARCH_DOMAINS
    set value cisco.com
    exit
-   create ipv4 2 default
+   create ipv4 2 firepower
     set ip 192.168.1.20 mask 255.255.255.0
     set gateway 192.168.1.1

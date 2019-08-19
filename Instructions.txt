@@ -1,0 +1,14 @@
+To use this tool:
+
+1. Fill out the spreadsheet with your relevant values.
+2. Multiple tabs can be used to generate multiple configs perhaps for different sites, DC's, configurations etc.
+3. Pay attention to the way it is formatted in the example, especially column A. If the value is altered there then the script will not work. Note it is not case sensitive.
+4. Set terminal send delay to 500ms or higher in SSH client of choice.
+5. Paste whole config or relevant sections.
+6. Don't forget to commit-buffer at the end.
+
+Current Issues:
+1. NTP Authentication currently broke - looking into.
+
+Notes:
+1. Ignore 'Managed object doesn't exist' when applying ACL, it will try and remove it each time.
